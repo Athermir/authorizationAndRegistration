@@ -37,6 +37,7 @@ namespace RegistrationTest.Core
                     MessageBox.Show("Вход выполнен");
                     MenuWindow menuWindow = new MenuWindow();
                     menuWindow.Show();
+                    Application.Current.Windows.Cast<Window>().FirstOrDefault(window => window is AuthorizationWindow).Close();
                 }
                 else MessageBox.Show("Такого пользователя не существует");
             }

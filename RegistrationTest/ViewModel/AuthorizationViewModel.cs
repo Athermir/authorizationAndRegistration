@@ -1,10 +1,12 @@
 ﻿using RegistrationTest.Command;
 using RegistrationTest.Core;
+using RegistrationTest.View.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace RegistrationTest.ViewModel
@@ -30,6 +32,8 @@ namespace RegistrationTest.ViewModel
         {
             RegistrationWindow registrationWindow = new RegistrationWindow();
             registrationWindow.Show();
+
+            Application.Current.Windows.Cast<Window>().FirstOrDefault(window => window is AuthorizationWindow).Close();
         }
     }
 }
