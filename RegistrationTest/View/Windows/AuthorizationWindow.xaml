@@ -1,0 +1,21 @@
+﻿<Window x:Class="RegistrationTest.View.Windows.AuthorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RegistrationTest.View.Windows"
+        xmlns:viewmodel="clr-namespace:RegistrationTest.ViewModel"
+        mc:Ignorable="d"
+        Title="AuthorizationWindow" Height="287.335" Width="316.842">
+    <Window.DataContext>
+        <viewmodel:AuthorizationViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="200">
+            <TextBox Margin="0,5" Text="{Binding Login}"/>
+            <TextBox Margin="0,5" Text="{Binding Password}"/>
+            <Button Content="Sing in" Margin="0,6" Width="50" Command="{Binding AuthorizationUserCommand}"/>
+            <Button Content="Registration" Width="100" Margin="0,6" Command="{Binding GoRegistrationWindowCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>
