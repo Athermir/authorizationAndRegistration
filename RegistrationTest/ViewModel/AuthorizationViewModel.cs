@@ -21,7 +21,10 @@ namespace RegistrationTest.ViewModel
 
         public AuthorizationViewModel() => ( AuthorizationUserCommand, GoRegistrationWindowCommand) =
             (new RelayCommand(AuthorizationUser), new RelayCommand(GoRegistrationWindow));
-        private void AuthorizationUser(object obj) => DbManneger.UserAuthorization(_login, _password);
+        private void AuthorizationUser(object obj)
+        {
+            DbManneger.UserAuthorization(_login, _password);
+        }
 
         private void GoRegistrationWindow(object obj)
         {

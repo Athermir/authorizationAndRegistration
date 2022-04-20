@@ -28,24 +28,17 @@ namespace RegistrationTest.Core
 
         public static void UserAuthorization(string log, string pas)
         {
-            try
+            using(var context = new RegistrationTestEntitie())
             {
-                using (var context = new RegistrationTestEntitie())
-                {
-                    var user = context.User.FirstOrDefault(u => u.Login.Equals(log) & u.Password.Equals(pas));
+                var user = context.User.FirstOrDefault(u => u.Login.Equals(log) && u.Password.Equals(pas));
 
-                    if (user != null)
-                    {
-                        MessageBox.Show("Вход выполнен");
-                        MenuWindow menuWindow = new MenuWindow();
-                        menuWindow.Show();
-                    }
-                    else MessageBox.Show("Такого пользователя не существует");
+                if (user != null)
+                {
+                    MessageBox.Show("Вход выполнен");
+                    MenuWindow menuWindow = new MenuWindow();
+                    menuWindow.Show();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error");
+                else MessageBox.Show("Такого пользователя не существует");
             }
         }
     }

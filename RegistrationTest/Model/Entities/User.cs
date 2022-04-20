@@ -14,7 +14,10 @@ namespace RegistrationTest.Model.Entities
     
     public partial class User
     {
+        public User()
+        {
 
+        }
         public User(string login, string password, int role = 1) => (Login, Password, RoleId) = (login, password, role);
 
         public int ID { get; set; }
